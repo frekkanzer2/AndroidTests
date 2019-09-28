@@ -28,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="0,1"
+        android:layout_marginBottom="8dp"
         >
 
         <TableRow
@@ -35,12 +36,14 @@
             android:layout_height="match_parent">
 
             <Button
+                android:id="@+id/btnPizzeria"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Pizzeria"
                 />
 
             <Button
+                android:id="@+id/btnPub"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Pub" />
@@ -51,10 +54,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
+                android:id="@+id/btnBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Bar" />
             <Button
+                android:id="@+id/btnSushi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Sushi" />
@@ -62,5 +67,36 @@
 
     </TableLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I've chosen for you..."
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:layout_marginBottom="-24dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="26dp"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        android:layout_marginTop="-22dp"
+        android:text="Send other places to abatefrancesco98@gmail.com"
+        />
 
 </LinearLayout>
