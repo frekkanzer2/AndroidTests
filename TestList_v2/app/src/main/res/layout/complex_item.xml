@@ -29,7 +29,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="3dp"
             android:text="Contact Name"
-            android:textSize="26dp"
+            android:textSize="25dp"
             android:textStyle="bold"
             />
 
