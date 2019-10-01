@@ -35,6 +35,7 @@ public class Configurator extends Object {
         listPizzerie.add("La Carmela (Nocera Inf.)");
         listPizzerie.add("Friariell' (Cava)");
         listPizzerie.add("Addò Ciaccio (Mercato S.S.)");
+        listPizzerie.add("Mony Pizza (Cava)");
         return listPizzerie;
     }
     public ArrayList<String> getPubList(){
