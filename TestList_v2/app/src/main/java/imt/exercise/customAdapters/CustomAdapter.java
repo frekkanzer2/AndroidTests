@@ -8,8 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import imt.exercise.testlist_v2.R;
 
 public class CustomAdapter extends ArrayAdapter {
@@ -19,10 +17,8 @@ public class CustomAdapter extends ArrayAdapter {
 
     //to store the contact image
     private final Integer[] imagesIDarray;
-
     //to store the list of names
     private final String[] namesArray;
-
     //to store the list of subNames
     private final String[] subnamesArray;
 
