@@ -21,10 +21,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reset"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
+        android:onClick="reset"
+        />
+    <ListView
+        android:id="@+id/controlList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         />
 
 </LinearLayout>
