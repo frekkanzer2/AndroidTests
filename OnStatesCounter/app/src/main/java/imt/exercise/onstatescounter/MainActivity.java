@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public int statesCounter = 0;
-    public ArrayList<String> messagesList = null;
+    public ArrayList<String> messagesList = new ArrayList<String>();
     public ListView layout_list = null;
     public TextView output = null;
 
@@ -30,22 +30,18 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Lifecycle", "Taking params");
             statesCounter = savedInstanceState.getInt("counter");
             messagesList = savedInstanceState.getStringArrayList("msgsList");
-        } else {
-            statesCounter = 0;
-            messagesList = new ArrayList<String>();
         }
 
         layout_list = findViewById(R.id.controlList);
         output = findViewById(R.id.counterText);
 
-        ArrayAdapter<ArrayList> listAdapter = new ArrayAdapter<ArrayList>(
-                this, R.layout.item_list, R.id.controlList
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(
+                this, R.layout.item_list, messagesList
         );
         layout_list.setAdapter(listAdapter);
 
-        messagesList.add(statesCounter + ": onCreate executed");
         statesCounter++;
-        listAdapter.notifyDataSetChanged();
+        messagesList.add(statesCounter + ": onCreate executed");
         update();
     }
 
@@ -78,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onDestroy(){
-        statesCounter++;
         messagesList.add(statesCounter + ": onDestroy executed");
         update();
         super.onDestroy();
@@ -86,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
+        statesCounter++;
         savedInstanceState.putInt("counter", statesCounter);
         savedInstanceState.putStringArrayList("msgsList", messagesList);
         Log.d("Alert", "Values saved");
