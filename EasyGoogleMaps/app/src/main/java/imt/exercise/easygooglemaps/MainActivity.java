@@ -31,8 +31,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 destination = input.getText().toString();
+                String avoidSettings = "";
+                if (!cb_highway.isSelected()) {
+                    avoidSettings = avoidSettings.concat("h");
+                    System.err.println("Done H! " + avoidSettings);
+                }
+                if (cb_toll.isSelected() == false) {
+                    avoidSettings = avoidSettings.concat("t");
+                    System.err.println("Done T! " + avoidSettings);
+                }
+                if (cb_ferry.isSelected() == false) {
+                    avoidSettings = avoidSettings.concat("f");
+                    System.err.println("Done F! " + avoidSettings);
+                }
+                System.err.println("Extra settings string: " + avoidSettings);
                 if (!destination.equals("")){
-                    Uri gmmIntentUri = Uri.parse("google.navigation:q=Taronga+Zoo,+Sydney+Australia&avoid=tf");
+                    Uri gmmIntentUri = null;
+                    if (!avoidSettings.equals(""))
+                        gmmIntentUri = Uri.parse("google.navigation:q=" + destination + "&avoid=" + avoidSettings);
+                    else gmmIntentUri = Uri.parse("google.navigation:q=" + destination);
                     Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                     mapIntent.setPackage("com.google.android.apps.maps");
                     startActivity(mapIntent);
