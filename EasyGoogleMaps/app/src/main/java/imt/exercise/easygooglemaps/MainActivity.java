@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -32,15 +33,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 destination = input.getText().toString();
                 String avoidSettings = "";
-                if (!cb_highway.isSelected()) {
+                if (!cb_highway.isChecked()) {
                     avoidSettings = avoidSettings.concat("h");
                     System.err.println("Done H! " + avoidSettings);
                 }
-                if (cb_toll.isSelected() == false) {
+                if (!cb_toll.isChecked()) {
                     avoidSettings = avoidSettings.concat("t");
                     System.err.println("Done T! " + avoidSettings);
                 }
-                if (cb_ferry.isSelected() == false) {
+                if (!cb_ferry.isChecked()) {
                     avoidSettings = avoidSettings.concat("f");
                     System.err.println("Done F! " + avoidSettings);
                 }
