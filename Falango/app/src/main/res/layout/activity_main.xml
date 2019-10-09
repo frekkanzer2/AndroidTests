@@ -90,12 +90,20 @@
             />
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/btnFinder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-40dp"
+        android:text="Finder"
+        />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="14dp"
-        android:layout_marginTop="-22dp"
+        android:layout_marginTop="-58dp"
         android:text="Send other places to abatefrancesco98@gmail.com"
         />
 

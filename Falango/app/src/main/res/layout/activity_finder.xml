@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Falango Finder"
+        android:textAlignment="center"
+        android:textSize="36dp"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginBottom="12dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click to filter a place according to your position"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        android:layout_marginBottom="14dp"
+        />
+    <Button
+        android:id="@+id/selection_pizzeria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pizzeria"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        />
+    <Button
+        android:id="@+id/selection_pub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pub"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        />
+    <Button
+        android:id="@+id/selection_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bar"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        />
+    <Button
+        android:id="@+id/selection_sushi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sushi"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        />
+
+</LinearLayout>

@@ -9,7 +9,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnPub = null;
     private Button btnBar = null;
     private Button btnSushi = null;
+    private Button btnFinder = null;
     private TextView chosenName = null;
     private ArrayList<String> listPizzeria = null;
     private ArrayList<String> listPub = null;
@@ -29,10 +29,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findIDs();
+        setListeners();
+    }
+
+    public void findIDs(){
         btnPizzeria = findViewById(R.id.btnPizzeria);
         btnPub = findViewById(R.id.btnPub);
         btnBar = findViewById(R.id.btnBar);
         btnSushi = findViewById(R.id.btnSushi);
+        btnFinder = findViewById(R.id.btnFinder);
         chosenName = findViewById(R.id.textResult);
         //creation of arraylists
         container = new Configurator();
@@ -40,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         listPub = container.getPubList();
         listBar = container.getBarList();
         listSushi = container.getSushiList();
+    }
+
+    public void setListeners(){
         //listener association
         btnPizzeria.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
                 chosenName.setText(container.getTakedName());
             }
         });
+        btnFinder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToFinder();
+            }
+        });
         //Set the TextView clickable
         chosenName.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -82,5 +97,9 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void goToFinder(){
+        startActivity(new Intent(MainActivity.this, FinderActivity.class));
     }
 }
