@@ -2,6 +2,7 @@ package imt.exercise.myquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private int limitIndex = 5;
     //objs in layout
     private TextView textQuestion = null;
+    private TextView textRight = null;
+    private TextView textWrong = null;
     private Button btnTrue = null;
     private Button btnFalse = null;
     private Button btnBack = null;
@@ -37,15 +40,10 @@ public class MainActivity extends AppCompatActivity {
             listHandler.add(database.getRandomicalQuestion());
             listHandler.get(i).setNumberOfQuestion(i+1);
         }
-        handler = listHandler.get(0);
+        currentIndex = 0;
+        handler = listHandler.get(currentIndex);
         setQuestion(handler);
-        //Configuration completed
-        btnTrue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                handler.checkIfCorrect(true);
-            }
-        });
+        setListeners();
     }
 
     private class DBSetter{
@@ -84,10 +82,129 @@ public class MainActivity extends AppCompatActivity {
         this.btnFalse = findViewById(R.id.btnFalse);
         this.btnBack = findViewById(R.id.btnBack);
         this.btnNext = findViewById(R.id.btnNext);
+        this.textRight = findViewById(R.id.textCorrect);
+        this.textWrong = findViewById(R.id.textWrong);
     }
 
     public void setQuestion(Question q){
-        this.textQuestion.setText(q.getNumberOfQuestion() + ". " + q.getText());
+        this.textQuestion.setText(q.getNumberOfQuestion() + ") " + q.getText());
     }
 
+    public void refreshReply(){
+        textRight.setText("Correct answers: " + rightCounter);
+        textWrong.setText("Wrong answers: " + wrongCounter);
+    }
+
+    public void setListeners(){
+        //BUTTON TRUE
+        btnTrue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean flag = handler.checkIfCorrect(true);
+                if (flag) rightCounter += 1;
+                else wrongCounter += 1;
+                //go to next question
+                boolean flagNotDone = false;
+                int tempIndex = 0;
+                while(!flagNotDone && tempIndex < (limitIndex+1)){
+                    if (currentIndex < limitIndex-1) currentIndex++;
+                    else currentIndex = 0;
+                    tempIndex++;
+                    Question tempQuestion = listHandler.get(currentIndex);
+                    if (!tempQuestion.getDone()) {
+                        flagNotDone = true; //it will exit from cycle
+                        handler = tempQuestion;
+                        setQuestion(handler);
+                    }
+                }
+                if (!flagNotDone){
+                    //Go to new activity
+
+                } else refreshReply();
+            }
+        });
+        //BUTTON FALSE
+        btnFalse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean flag = handler.checkIfCorrect(false);
+                if (flag) rightCounter += 1;
+                else wrongCounter += 1;
+                //go to next question
+                boolean flagNotDone = false;
+                int tempIndex = 0;
+                while(!flagNotDone && tempIndex < (limitIndex+1)){
+                    if (currentIndex < limitIndex-1) currentIndex++;
+                    else currentIndex = 0;
+                    tempIndex++;
+                    Question tempQuestion = listHandler.get(currentIndex);
+                    if (!tempQuestion.getDone()) {
+                        flagNotDone = true; //it will exit from cycle
+                        handler = tempQuestion;
+                        setQuestion(handler);
+                    }
+                }
+                if (!flagNotDone){
+                    //Go to new activity
+                    Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    intent.putExtra("CorrectAnswers", rightCounter);
+                    intent.putExtra("WrongAnswers", wrongCounter);
+                    startActivity(intent);
+                } else refreshReply();
+            }
+        });
+        //BUTTON NEXT
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean flagNotDone = false;
+                int tempIndex = 0;
+                while(!flagNotDone && tempIndex < (limitIndex+1)){
+                    if (currentIndex < limitIndex-1) currentIndex++;
+                    else currentIndex = 0;
+                    tempIndex++;
+                    Question tempQuestion = listHandler.get(currentIndex);
+                    if (!tempQuestion.getDone()) {
+                        flagNotDone = true; //it will exit from cycle
+                        handler = tempQuestion;
+                        setQuestion(handler);
+                    }
+                }
+                if (!flagNotDone){
+                    //Go to new activity
+                    Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    intent.putExtra("CorrectAnswers", rightCounter);
+                    intent.putExtra("WrongAnswers", wrongCounter);
+                    startActivity(intent);
+                } else refreshReply();
+            }
+        });
+        //BUTTON BACK
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean flagNotDone = false;
+                int tempIndex = 0;
+                while(!flagNotDone && tempIndex < (limitIndex+1)){
+                    if (currentIndex > 0) currentIndex--;
+                    else currentIndex = limitIndex-1;
+                    tempIndex++;
+                    Question tempQuestion = listHandler.get(currentIndex);
+                    if (!tempQuestion.getDone()) {
+                        flagNotDone = true; //it will exit from cycle
+                        handler = tempQuestion;
+                        setQuestion(handler);
+                    }
+                }
+                if (!flagNotDone){
+                    //Go to new activity
+                    Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    intent.putExtra("CorrectAnswers", rightCounter);
+                    intent.putExtra("WrongAnswers", wrongCounter);
+                    startActivity(intent);
+                } else refreshReply();
+            }
+        });
+
+    }
 }

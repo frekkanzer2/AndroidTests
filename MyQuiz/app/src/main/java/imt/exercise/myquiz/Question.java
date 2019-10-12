@@ -2,9 +2,9 @@ package imt.exercise.myquiz;
 
 public class Question {
 
-    private String text = null;
-    private int numberOfQuestion = 0;
-    private boolean answer = false;
+    private String text;
+    private int numberOfQuestion;
+    private boolean answer;
     private boolean done = false;
 
     public Question(String text, int number, boolean answer){
@@ -38,10 +38,8 @@ public class Question {
     }
 
     public boolean checkIfCorrect(boolean userAnswer){
-        if (this.answer == userAnswer && this.done == false) {
-            this.done = true;
-            return true;
-        }
+        this.done = true;
+        if (this.answer == userAnswer) return true;
         else return false;
     }
 
