@@ -40,9 +40,6 @@ public class SumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sum);
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sum);
-
         selThreads = findViewById(R.id.txt_selection);
         selSize = findViewById(R.id.editTxt_iniSize);
         Intent myIntent = getIntent();
