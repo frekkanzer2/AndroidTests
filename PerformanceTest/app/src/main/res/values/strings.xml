@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PerformanceTest</string>
+    <string name="title_name">Performance Test</string>
+    <string name="desc_choose">Select operation and threads</string>
+    <string name="text_btn1">Initialization</string>
+    <string name="text_btn2">Multiple Sum</string>
+    <string name="desc_thread">Number of threads:</string>
+</resources>
