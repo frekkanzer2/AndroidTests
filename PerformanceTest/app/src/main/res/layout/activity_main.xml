@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".Activities.MainActivity"
     android:orientation="vertical"
     android:layout_margin="20dp"
     >
@@ -31,7 +31,9 @@
         android:id="@+id/operation_initialization"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_btn1" />
+        android:text="@string/text_btn1"
+        android:onClick="goto_OperationINI"
+        />
 
     <Button
         android:id="@+id/operation_multipleSum"
@@ -39,6 +41,7 @@
         android:layout_height="wrap_content"
         android:text="@string/text_btn2"
         android:layout_marginBottom="12dp"
+        android:onClick="goto_OperationSUM"
         />
 
     <LinearLayout

@@ -5,4 +5,7 @@
     <string name="text_btn1">Initialization</string>
     <string name="text_btn2">Multiple Sum</string>
     <string name="desc_thread">Number of threads:</string>
+    <string name="insert_mln">MLN</string>
+    <string name="default_numbIni">1</string>
+    <string name="start">Start</string>
 </resources>
