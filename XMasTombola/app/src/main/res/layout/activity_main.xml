@@ -51,7 +51,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginEnd="110dp"
             android:layout_marginRight="110dp"
-            android:layout_marginBottom="12dp"
             android:orientation="horizontal">
 
             <TextView
@@ -67,6 +66,7 @@
                 android:textSize="18sp" />
 
             <Spinner
+                android:id="@+id/mySpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -74,6 +74,17 @@
                 android:textAlignment="center" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Price: 0 cents"
+            android:layout_marginBottom="12dp"
+            android:textSize="16sp"
+            android:textColor="#e0e0e0"
+            />
 
         <RelativeLayout
             android:layout_width="match_parent"
