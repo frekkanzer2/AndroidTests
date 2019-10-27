@@ -2,8 +2,10 @@ package imt.exercise.xmastombola;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -30,12 +32,43 @@ public class MainActivity extends AppCompatActivity {
         int numberOfCards = Integer.parseInt(item);
         if (numberOfCards == 1) txtPrice.setText("Price: 10 cents");
 
+        spnCards.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch(position){
+                    case 0:
+                        txtPrice.setText("Price 10 cents");
+                        break;
+                    case 1:
+                        txtPrice.setText("Price 20 cents");
+                        break;
+                    case 2:
+                        txtPrice.setText("Price 30 cents");
+                        break;
+                    case 3:
+                        txtPrice.setText("Price 40 cents");
+                        break;
+                    case 4:
+                        txtPrice.setText("Price 50 cents");
+                        break;
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String playerName = txtInputName.getText().toString();
                 if (!playerName.equals("Insert here your name")){
-
+                    int nocards = Integer.parseInt(spnCards.getSelectedItem().toString());
+                    Intent newActivity = new Intent(MainActivity.this, CardsActivity.class);
+                    newActivity.putExtra("PLAYERNAME", playerName);
+                    newActivity.putExtra("NOCARDS", nocards);
+                    startActivity(newActivity);
                 }
             }
         });
