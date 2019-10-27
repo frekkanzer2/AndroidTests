@@ -31,7 +31,6 @@ public class Cartella extends Fragment implements View.OnClickListener {
         for (View item: arrayButtons){
             Button tempButton = (Button) item;
             if (tempButton != null && numbers != null){
-                System.err.println("PORCODDIO SONO ENTRATO");
                 tempButton.setOnClickListener(this);
                 tempButton.setText("" + numbers[i]);
                 tempButton.setTextColor(Color.BLACK);
