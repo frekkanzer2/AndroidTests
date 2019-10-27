@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">XMas Tombola</string>
+    <string name="default_number">90</string>
+    <string name="defaultstr_cartella">Card of Francesco, n. 1</string>
+    <string name="credits">Developed by Francesco Abate</string>
+    <string name="name_suggestion">Insert here your name</string>
+    <string name="description_insertNumber">Insert the number of your cards:</string>
+</resources>
