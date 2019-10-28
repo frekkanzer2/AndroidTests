@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class CardsActivity extends AppCompatActivity {
 
@@ -39,6 +40,5 @@ public class CardsActivity extends AppCompatActivity {
             transaction.add(R.id.layout_toAppend, collection[i], null);
         }
         transaction.commit();
-
     }
 }
