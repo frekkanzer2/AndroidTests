@@ -5,11 +5,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class CardsActivity extends AppCompatActivity {
 
@@ -40,5 +44,25 @@ public class CardsActivity extends AppCompatActivity {
             transaction.add(R.id.layout_toAppend, collection[i], null);
         }
         transaction.commit();
+
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int number = Integer.parseInt(txt_newNumber.getText().toString());
+                for (int i = 0; i < numberOfCards; i++){
+                    Card myCard = collection[i];
+                    ArrayList<View> listOfButtons = myCard.getArrayOfButtons();
+                    for (View btnView: listOfButtons){
+                        Button myBtn = (Button) btnView;
+                        int btnNumber = Integer.parseInt(myBtn.getText().toString());
+                        if (number == btnNumber){
+                            myBtn.setTag("true");
+                            myBtn.setBackgroundColor(Color.parseColor("#BB2528"));
+                        }
+                    }
+                }
+            }
+        });
+
     }
 }

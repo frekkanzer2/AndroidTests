@@ -18,6 +18,7 @@ public class Card extends Fragment {
     private String playerName = null;
     private int cardNumber = 0;
     private int[] arrayOfNumbers = null;
+    private ArrayList<View> arrayOfButtons = null;
 
     public Card(String playerName, int cardNo){
         this.playerName = playerName;
@@ -87,7 +88,7 @@ public class Card extends Fragment {
         View v = creator.inflate(R.layout.cartella, null);
         System.err.println("Getted the view inflated");
         //arrayOfButtons will contain an array of Buttons (numbers on the card
-        ArrayList<View> arrayOfButtons = v.findViewById(R.id.root_card).getTouchables();
+        arrayOfButtons = v.findViewById(R.id.root_card).getTouchables();
         System.err.println("Buttons found: " + arrayOfButtons.size());
         int k = 0;
         System.err.println("Entering in condition...");
@@ -119,6 +120,10 @@ public class Card extends Fragment {
         TextView intestation = v.findViewById(R.id.nameCard);
         intestation.setText("Card of " + this.playerName + ", n. " + this.cardNumber);
         return v;
+    }
+
+    public ArrayList<View> getArrayOfButtons(){
+        return this.arrayOfButtons;
     }
 
 }

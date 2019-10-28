@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtInputName = null;
     private Spinner spnCards = null;
     private TextView txtPrice = null;
+    //Online section
+    private Button btnHost = null; //play with board
+    private Button btnClient = null; //play with cards
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         txtInputName = findViewById(R.id.input_name);
         spnCards = findViewById(R.id.mySpinner);
         txtPrice = findViewById(R.id.txt_price);
+
+        btnHost = findViewById(R.id.btn_online_board);
+        btnClient = findViewById(R.id.btn_online_cards);
 
         String item = spnCards.getSelectedItem().toString();
         int numberOfCards = Integer.parseInt(item);
