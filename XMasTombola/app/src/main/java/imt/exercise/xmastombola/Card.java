@@ -39,40 +39,40 @@ public class Card extends Fragment {
         for (int i = 1; i < 91; i++) listOfNumbers.add(i);
         for (int i = 0; i < 3; i++) {
             //first
-            position = getRandomInt(1, 18 - arrayIndex);
-            System.err.println("Random getted position: " + position);
+            position = getRandomInt(0, 17 - arrayIndex);
+            System.err.println("Random gotten position: " + position);
             arrayToReturn[arrayIndex] = listOfNumbers.get(position);
             listOfNumbers.remove(position);
             arrayIndex++;
             System.err.println("Size of the array: " + listOfNumbers.size());
             System.err.println("arrayIndex: " + arrayIndex);
             //second
-            position = getRandomInt(19 - arrayIndex, 36 - arrayIndex);
-            System.err.println("Random getted position: " + position);
+            position = getRandomInt(18 - arrayIndex, 35 - arrayIndex);
+            System.err.println("Random gotten position: " + position);
             arrayToReturn[arrayIndex] = listOfNumbers.get(position);
             listOfNumbers.remove(position);
             arrayIndex++;
             System.err.println("Size of the array: " + listOfNumbers.size());
             System.err.println("arrayIndex: " + arrayIndex);
             //third
-            position = getRandomInt(37 - arrayIndex, 54 - arrayIndex);
-            System.err.println("Random getted position: " + position);
+            position = getRandomInt(36 - arrayIndex, 53 - arrayIndex);
+            System.err.println("Random gotten position: " + position);
             arrayToReturn[arrayIndex] = listOfNumbers.get(position);
             listOfNumbers.remove(position);
             arrayIndex++;
             System.err.println("Size of the array: " + listOfNumbers.size());
             System.err.println("arrayIndex: " + arrayIndex);
             //fourth
-            position = getRandomInt(55 - arrayIndex, 72 - arrayIndex);
-            System.err.println("Random getted position: " + position);
+            position = getRandomInt(54 - arrayIndex, 71 - arrayIndex);
+            System.err.println("Random gotten position: " + position);
             arrayToReturn[arrayIndex] = listOfNumbers.get(position);
             listOfNumbers.remove(position);
             arrayIndex++;
             System.err.println("Size of the array: " + listOfNumbers.size());
             System.err.println("arrayIndex: " + arrayIndex);
             //fifth
-            position = getRandomInt(73 - arrayIndex, 90 - arrayIndex);
-            System.err.println("Random getted position: " + position);
+            position = getRandomInt(72 - arrayIndex, 89 - arrayIndex);
+            System.err.println("Random gotten position: " + position);
             arrayToReturn[arrayIndex] = listOfNumbers.get(position);
             listOfNumbers.remove(position);
             arrayIndex++;
