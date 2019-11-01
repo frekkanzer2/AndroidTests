@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import imt.exercise.xmastombola.multiplayer.BoardActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnConfirm = null;
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     //Online section
     private Button btnHost = null; //play with board
     private Button btnClient = null; //play with cards
+    private EditText txtPort = null;
+    private EditText txtMaxPlayers = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         btnHost = findViewById(R.id.btn_online_board);
         btnClient = findViewById(R.id.btn_online_cards);
+        txtPort = findViewById(R.id.txt_port);
+        txtMaxPlayers = findViewById(R.id.maxPlayers);
 
         String item = spnCards.getSelectedItem().toString();
         int numberOfCards = Integer.parseInt(item);
@@ -74,6 +80,20 @@ public class MainActivity extends AppCompatActivity {
                     Intent newActivity = new Intent(MainActivity.this, CardsActivity.class);
                     newActivity.putExtra("PLAYERNAME", playerName);
                     newActivity.putExtra("NOCARDS", nocards);
+                    startActivity(newActivity);
+                }
+            }
+        });
+
+        btnHost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String playerName = txtInputName.getText().toString();
+                if (!playerName.equals("Insert here your name")) {
+                    Intent newActivity = new Intent(MainActivity.this, BoardActivity.class);
+                    newActivity.putExtra("MAXPLAYERS", Integer.parseInt(txtMaxPlayers.getText().toString()));
+                    newActivity.putExtra("SERVERPORT", Integer.parseInt(txtPort.getText().toString()));
+                    newActivity.putExtra("PLAYERNAME", playerName);
                     startActivity(newActivity);
                 }
             }
