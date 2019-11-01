@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,11 +23,16 @@ public class CardsActivity extends AppCompatActivity {
     private EditText txt_newNumber = null;
     private Button btn_add = null;
     private Card[] collection = null;
+    private Toast msgConfirm = null;
+    private Toast msgError = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cards);
+
+        msgConfirm = Toast.makeText(getApplicationContext(), "Number added", Toast.LENGTH_SHORT);
+        msgError = Toast.makeText(getApplicationContext(), "Invalid number", Toast.LENGTH_SHORT);
 
         Intent myIntent = getIntent();
         numberOfCards = myIntent.getIntExtra("NOCARDS", 1);
@@ -49,6 +55,9 @@ public class CardsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int number = Integer.parseInt(txt_newNumber.getText().toString());
+                if (number > 0 && number <= 90)
+                    msgConfirm.show();
+                else msgError.show();
                 for (int i = 0; i < numberOfCards; i++){
                     Card myCard = collection[i];
                     ArrayList<View> listOfButtons = myCard.getArrayOfButtons();

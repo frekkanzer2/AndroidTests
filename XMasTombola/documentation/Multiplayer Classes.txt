@@ -1,0 +1,40 @@
+Class MultiplayerCard
+Methods >
+	[Constructor] MultiplayerCard(String, int)
+		-> Creates a card object with player name, number id of the card, list of buttons, list of numbers
+	[Private] getRandomInt(int, int)
+		-> It returns a randomic integer between the range min-max
+	[Private] generateNumbers()
+		-> It generates 90 randomical numbers following an algorithm
+	[Public] getArrayOfButtons()
+		-> It returns all button instances of the card
+
+Class BoardServer
+Methods >
+	[Constructor] BoardServer(int, int)
+		-> It creates a server connection with a specified port and an array of connections with a limit specified in the arguments
+	[Public] execute()
+		-> It will start the server, that it will accept connections from clients
+	[Public] turnOffAccept()
+		-> The server will not accept connections anymore
+	[Public] sendNumber(int)
+		-> It will send a number to all connected clients
+	[Public] closeServer()
+		-> It will close the server and all client connections
+
+Class threads.ThreadEmitter
+Methods >
+	[Constructor] ThreadEmitter(Socket)
+		-> It initialize connection streams
+	[Public] sendNumberToClient(int)
+		-> It sends a number to the client
+	[Private] streamsCreation()
+		-> It initialize streams
+	[Public] closeConnection()
+		-> It closes client connection
+
+Class [GUI - Procedural] BoardActivity
+	[Singleton] BoardServer
+	/*** NOTES ***/
+		BoardActivity contains a layout that contains the GUI of the board.
+		All board buttons should be taken from that internal layout.

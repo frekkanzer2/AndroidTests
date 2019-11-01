@@ -45,7 +45,7 @@ public class ThreadEmitter extends Thread {
     }
 
     //closeConnection closes connection with the socket
-    private void closeConnection(){
+    public void closeConnection(){
         try {
             this.connection.close();
         } catch (Exception e_){
