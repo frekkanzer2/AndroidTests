@@ -1,5 +1,7 @@
 package imt.exercise.xmastombola.multiplayer;
 
+import android.widget.TextView;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -27,7 +29,7 @@ public class BoardServer {
 	//execute() accepts connections from clients, creating for each one a thread
 		//this method will run while the server can accept connections
 		//turn off "accept connections" with turnOffAccept() method
-	public void execute() {
+	public void execute(TextView text) {
 		while(this.canAccept) {
 			Socket newestSocket = null;
 			try {
@@ -37,6 +39,8 @@ public class BoardServer {
 				ThreadEmitter tempThread = new ThreadEmitter(newestSocket);
 				allThreads.add(tempThread);
 				tempThread.start();
+				BoardActivity.setNoPlayers(BoardActivity.getNoPlayers() + 1);
+				text.setText("Current players: " + BoardActivity.getNoPlayers());
 			} catch (IOException e){
 				e.printStackTrace();
 				System.err.println("Problem with connection.");
