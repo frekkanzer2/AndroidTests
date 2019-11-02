@@ -15,6 +15,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import imt.exercise.xmastombola.R;
+import imt.exercise.xmastombola.multiplayer.threads.ThreadAcceptConnections;
 
 public class BoardActivity extends AppCompatActivity {
 
@@ -24,7 +25,7 @@ public class BoardActivity extends AppCompatActivity {
     private volatile static boolean anyoneWins = false;
     private BoardServer myServer = null;
     private TextView txt_status = null;
-    private TextView txt_noPlayers = null;
+    private volatile static TextView txt_noPlayers = null;
     private TextView txt_nameBoard = null;
     private Button btn_startGame = null;
     private ArrayList<Button> list_allBtnNumbers = null;
@@ -35,6 +36,7 @@ public class BoardActivity extends AppCompatActivity {
     private boolean gameIsStarted = false;
     private Toast msgStartedGame = null;
     private Toast msgBoardWin = null;
+    private Toast msgNeedPlayer = null;
     private ArrayList<Integer> arrayOfNumbers = null;
     private int extractedNumbers = 0;
 
@@ -51,6 +53,8 @@ public class BoardActivity extends AppCompatActivity {
         txt_nameBoard.setText("Board of " + myIntent.getStringExtra("PLAYERNAME"));
 
         //myServer.execute(txt_noPlayers);
+        ThreadAcceptConnections tempThread = new ThreadAcceptConnections(myServer);
+        tempThread.start();
         list_allBtnNumbers = getButtons();
         initializeNumbers();
 
@@ -126,10 +130,18 @@ public class BoardActivity extends AppCompatActivity {
                         System.exit(0);
                     }
                     System.exit(0);
+                } else if (!gameIsStarted && BoardActivity.getNoPlayers() == 1){
+                    msgNeedPlayer.show();
                 }
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        myServer.closeServer();
     }
 
     private void initialize(){
@@ -140,6 +152,7 @@ public class BoardActivity extends AppCompatActivity {
         btn_startGame = findViewById(R.id.btn_startGame);
         msgStartedGame = Toast.makeText(getApplicationContext(), "Game started! Good luck everyone!", Toast.LENGTH_SHORT);
         msgBoardWin = Toast.makeText(getApplicationContext(), "TOMBOLA!", Toast.LENGTH_SHORT);
+        msgNeedPlayer = Toast.makeText(getApplicationContext(), "You need another player to start the game!", Toast.LENGTH_SHORT);
     }
 
     protected ArrayList<Button> getButtons(){
@@ -166,6 +179,10 @@ public class BoardActivity extends AppCompatActivity {
 
     public static synchronized int getNoPlayers(){
         return BoardActivity.noPlayers;
+    }
+
+    public static synchronized void refreshNoPlayers(){
+        BoardActivity.txt_noPlayers.setText("Current players: " + BoardActivity.getNoPlayers());
     }
 
     private void registerOnBoard(int number){
@@ -247,5 +264,7 @@ public class BoardActivity extends AppCompatActivity {
         arrayOfNumbers.remove(index);
         return numberToReturn;
     }
+
+
 
 }

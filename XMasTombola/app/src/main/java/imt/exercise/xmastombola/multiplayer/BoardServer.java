@@ -31,18 +31,19 @@ public class BoardServer {
 	//execute() accepts connections from clients, creating for each one a thread
 		//this method will run while the server can accept connections
 		//turn off "accept connections" with turnOffAccept() method
-	public void execute(TextView text) {
+	public void execute() {
 		while(this.canAccept) {
 			Socket newestSocket = null;
 			try {
 				// for each client, it will create a new thread that
 				// contains the socket for communication
+				System.err.println("I'll wait new connections");
 				newestSocket = myServer.accept();
 				ThreadEmitter tempThread = new ThreadEmitter(newestSocket);
 				allThreads.add(tempThread);
 				tempThread.start();
 				BoardActivity.setNoPlayers(BoardActivity.getNoPlayers() + 1);
-				text.setText("Current players: " + BoardActivity.getNoPlayers());
+				BoardActivity.refreshNoPlayers();
 			} catch (IOException e){
 				e.printStackTrace();
 				System.err.println("Problem with connection.");
@@ -65,6 +66,7 @@ public class BoardServer {
 
 	//closeServer() closes all client connections and the principal server connection
 	public void closeServer(){
+		this.canAccept = false;
 		for (int i = 0; i < this.allThreads.size(); i++)
 			this.allThreads.get(i).closeConnection();
 		try{
