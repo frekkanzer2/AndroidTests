@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import imt.exercise.xmastombola.multiplayer.BoardActivity;
+import imt.exercise.xmastombola.multiplayer.MpCardsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -94,6 +95,21 @@ public class MainActivity extends AppCompatActivity {
                     newActivity.putExtra("MAXPLAYERS", Integer.parseInt(txtMaxPlayers.getText().toString()));
                     newActivity.putExtra("SERVERPORT", Integer.parseInt(txtPort.getText().toString()));
                     newActivity.putExtra("PLAYERNAME", playerName);
+                    startActivity(newActivity);
+                }
+            }
+        });
+
+        btnClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String playerName = txtInputName.getText().toString();
+                if (!playerName.equals("Insert here your name")) {
+                    int nocards = Integer.parseInt(spnCards.getSelectedItem().toString());
+                    Intent newActivity = new Intent(MainActivity.this, MpCardsActivity.class);
+                    newActivity.putExtra("NOCARDS", nocards);
+                    newActivity.putExtra("PLAYERNAME", playerName);
+                    newActivity.putExtra("SERVERPORT", Integer.parseInt(txtPort.getText().toString()));
                     startActivity(newActivity);
                 }
             }

@@ -52,7 +52,6 @@ public class BoardActivity extends AppCompatActivity {
         initialize();
         txt_nameBoard.setText("Board of " + myIntent.getStringExtra("PLAYERNAME"));
 
-        //myServer.execute(txt_noPlayers);
         ThreadAcceptConnections tempThread = new ThreadAcceptConnections(myServer);
         tempThread.start();
         list_allBtnNumbers = getButtons();
@@ -264,7 +263,5 @@ public class BoardActivity extends AppCompatActivity {
         arrayOfNumbers.remove(index);
         return numberToReturn;
     }
-
-
 
 }

@@ -25,6 +25,7 @@ public class ThreadEmitter extends Thread {
     public void sendNumberToClient(int number){
         try {
         	out.writeObject(number);
+        	out.flush();
         } catch (Exception e) {
         	System.err.println("Cannot send the number.");
         	e.printStackTrace();
@@ -48,6 +49,8 @@ public class ThreadEmitter extends Thread {
     public void closeConnection(){
         try {
             this.connection.close();
+            this.out.close();
+            this.in.close();
         } catch (Exception e_){
             e_.printStackTrace();
         }

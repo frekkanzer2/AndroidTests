@@ -39,14 +39,15 @@ public class BoardServer {
 				// contains the socket for communication
 				System.err.println("I'll wait new connections");
 				newestSocket = myServer.accept();
+				System.err.println("Connection accepted");
 				ThreadEmitter tempThread = new ThreadEmitter(newestSocket);
 				allThreads.add(tempThread);
 				tempThread.start();
 				BoardActivity.setNoPlayers(BoardActivity.getNoPlayers() + 1);
 				BoardActivity.refreshNoPlayers();
 			} catch (IOException e){
+				System.err.println("Connection acceptation interrupted");
 				e.printStackTrace();
-				System.err.println("Problem with connection.");
 			}
 		}
 		System.err.println("Server doesn't accept connections anymore");
