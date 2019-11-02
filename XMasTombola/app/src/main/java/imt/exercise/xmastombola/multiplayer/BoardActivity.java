@@ -49,7 +49,8 @@ public class BoardActivity extends AppCompatActivity {
 
         initialize();
         txt_nameBoard.setText("Board of " + myIntent.getStringExtra("PLAYERNAME"));
-        myServer.execute(txt_noPlayers);
+
+        //myServer.execute(txt_noPlayers);
         list_allBtnNumbers = getButtons();
         initializeNumbers();
 

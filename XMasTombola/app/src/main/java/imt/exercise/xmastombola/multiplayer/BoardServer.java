@@ -22,8 +22,9 @@ public class BoardServer {
 			myServer = new ServerSocket(port);
 		} catch (IOException e) {
 			e.printStackTrace();
+			if (myServer == null) System.err.println("SERVER NOT CREATED");
+			System.exit(0);
 		}
-		if (myServer == null) System.err.println("SERVER NOT CREATED");
 		allThreads = new ArrayList<ThreadEmitter>(maxPlayers);
 	}
 
