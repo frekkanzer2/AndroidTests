@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Server"
+        android:onClick="createServer"/>
+
+    <Button
+        android:id="@+id/client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Check Client"
+        android:onClick="createClient"/>
+
+    <TextView
+        android:id="@+id/statusServer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Server off"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/statusClient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Client off"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
+
+</LinearLayout>
