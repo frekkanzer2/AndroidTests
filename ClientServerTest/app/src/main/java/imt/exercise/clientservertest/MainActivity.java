@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static volatile TextView statusServer = null;
     public static volatile TextView statusClient = null;
+    public ServerThread st = null;
 
     public static synchronized void changeStatusServer(String msg){
         MainActivity.statusServer.setText(msg);
@@ -34,13 +35,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createServer(View v){
-        ServerThread st = new ServerThread();
+        st = new ServerThread();
         st.start();
     }
 
     public void createClient(View v){
         ClientThread ct = new ClientThread();
         ct.start();
+    }
+
+    public void closeServer(View v){
+        st.closeServer();
     }
 
 }

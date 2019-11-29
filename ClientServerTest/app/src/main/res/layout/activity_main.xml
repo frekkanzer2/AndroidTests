@@ -37,4 +37,11 @@
         android:textSize="20sp"
         android:textAlignment="center"/>
 
+    <Button
+        android:id="@+id/close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Close Server"
+        android:onClick="closeServer"/>
+
 </LinearLayout>
