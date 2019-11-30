@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    >
+
+    <TextView
+        android:id="@+id/txt_counter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="38sp"
+        android:textColor="#E53E1A"
+        android:background="#F6A71C"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <!--FIRST ROW-->
+                <TableRow>
+                    <Button
+                        android:id="@+id/btn_control_1"
+                        android:text="up"
+                        android:layout_column="1"
+                        android:onClick="buttonClicked"
+                        />
+                    <Button
+                        android:id="@+id/btn_control_2"
+                        android:text="up"
+                        android:onClick="buttonClicked"
+                        />
+                    <Button
+                        android:id="@+id/btn_control_3"
+                        android:text="up"
+                        android:onClick="buttonClicked"
+                        />
+                </TableRow>
+                <!--SECOND ROW-->
+                <TableRow>
+                    <Button
+                        android:id="@+id/btn_control_4"
+                        android:text="left"
+                        android:onClick="buttonClicked"
+                        />
+                    <TextView
+                        android:id="@+id/txt_numb_1"
+                        android:text="1"
+                        />
+                    <TextView
+                        android:id="@+id/txt_numb_2"
+                        android:text="1"
+                        />
+                    <TextView
+                        android:id="@+id/txt_numb_3"
+                        android:text="1"
+                        />
+                    <Button
+                        android:id="@+id/btn_control_5"
+                        android:text="right"
+                        android:onClick="buttonClicked"
+                        />
+                </TableRow>
+                <!--THIRD ROW-->
+                <TableRow>
+                    <Button
+                        android:id="@+id/btn_control_6"
+                        android:text="left"
+                        android:onClick="buttonClicked"
+                        />
+                    <TextView
+                        android:id="@+id/txt_numb_4"
+                        android:text="1"
+                        />
+                    <TextView
+                        android:id="@+id/txt_numb_5"
+                        android:text="1"
+                        />
+                    <TextView
+                        android:id="@+id/txt_numb_6"
+                        android:text="1"
+                        />
+                    <Button
+                        android:id="@+id/btn_control_7"
+                        android:text="right"
+                        android:onClick="buttonClicked"
+                        />
+                </TableRow>
+                <!--FOURTH ROW-->
+                <TableRow>
+                    <Button
+                        android:id="@+id/btn_control_8"
+                        android:text="left"
+                        android:onClick="buttonClicked"
+                        />
+                    <TextView
+                        android:id="@+id/txt_numb_7"
+                        android:text="1"
+                        />
+                    <TextView
+                        android:id="@+id/txt_numb_8"
+                        android:text="1"
+                        />
+                    <TextView
+                        android:id="@+id/txt_numb_9"
+                        android:text="1"
+                        />
+                    <Button
+                        android:id="@+id/btn_control_9"
+                        android:text="right"
+                        android:onClick="buttonClicked"
+                        />
+                </TableRow>
+                <!--FIFTH ROW-->
+                <TableRow>
+                    <Button
+                        android:id="@+id/btn_control_10"
+                        android:text="down"
+                        android:layout_column="1"
+                        android:onClick="buttonClicked"
+                        />
+                    <Button
+                        android:id="@+id/btn_control_11"
+                        android:text="down"
+                        android:onClick="buttonClicked"
+                        />
+                    <Button
+                        android:id="@+id/btn_control_12"
+                        android:text="down"
+                        android:onClick="buttonClicked"
+                        />
+                </TableRow>
+
+            </TableLayout>
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RESET"
+                />
+
+            <Button
+                android:id="@+id/btn_cheat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CHEAT ;)"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
