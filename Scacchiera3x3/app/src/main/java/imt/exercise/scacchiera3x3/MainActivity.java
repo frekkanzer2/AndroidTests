@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 shuffle();
                 updateNumbers();
                 tv_counter.setText("0");
+                counter = 0;
             }
         });
 
