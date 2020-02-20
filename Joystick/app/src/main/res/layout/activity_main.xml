@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:id="@+id/myFragment"
+        android:name="imt.exercise.joystick.MovementFragment"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="20dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_up"
+            android:text="UP"
+            android:layout_centerHorizontal="true"
+            android:onClick="clicked"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_center"
+            android:text="CENTER"
+            android:layout_below="@id/btn_up"
+            android:layout_centerHorizontal="true"
+            android:onClick="clicked"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_left"
+            android:text="LEFT"
+            android:layout_toLeftOf="@id/btn_center"
+            android:layout_below="@id/btn_up"
+            android:onClick="clicked"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_right"
+            android:text="RIGHT"
+            android:layout_toRightOf="@id/btn_center"
+            android:layout_below="@id/btn_up"
+            android:onClick="clicked"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_down"
+            android:text="DOWN"
+            android:layout_below="@id/btn_center"
+            android:layout_centerHorizontal="true"
+            android:onClick="clicked"
+            />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/txt_mov"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_gravity="end"
+        android:layout_marginRight="40dp"
+        android:text="10"/>
+
+
+</LinearLayout>
